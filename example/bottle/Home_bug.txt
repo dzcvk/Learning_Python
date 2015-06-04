@@ -1,0 +1,93 @@
+<html><head>
+</head><body>
+
+
+
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() 
+	{
+		$('#TxtAutoManual').empty();
+		$('#TxtRelayState').empty();
+		$.ajax({ 
+			url: '/Refresh',
+			cache:false, 
+			type: 'GET',
+			success: function(Data) {
+				$('#TxtAutoManual').val(Data.AutoManualState); 
+				$('#TxtRelayState').val(Data.AutoManualState);
+			}
+		});
+	}
+	);
+</script>
+
+
+
+
+
+<button id ='Refresh'>Refresh</button>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() { $('#Refresh').click(
+function(){
+$('#TxtAutoManual').empty();
+$('#TxtRelayState').empty();
+$.ajax({ url: '/Refresh',
+ cache:false, type: 'GET',
+ success: function(Data) {
+ $('#TxtAutoManual').val(Data.AutoManualState); $('#TxtRelayState').val(Data.AutoManualState);}
+});
+})
+});
+</script>
+
+
+
+<br><br>
+<button id='BtnAutoManual'>Auto/Manual</button>
+<input id='TxtAutoManual'></text>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() { $('#BtnAutoManual').click(
+function(){
+$('#TxtAutoManual').empty()
+$.ajax({ url: '/AutoManual',
+ cache:false, type: 'GET',
+ success: function(Data) {
+ $('#TxtAutoManual').val(Data.AutoManualState);}
+});
+})
+});
+</script>
+
+
+
+
+<br><br>
+<button id='BtnRunStop'>Run/Stop</button>
+<input id='TxtRelayState'></text>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() { $('#BtnRunStop').click(
+function(){
+$('#TxtRelayState').empty()
+$.ajax({ url: '/RunStop',
+ cache:false, type: 'GET',
+ success: function(Data) {
+ $('#TxtRelayState').val(Data.RelayState);}
+});
+})
+});
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+print('h' in ['haha'])
+print('a' in ['haha'])
+print('haha' in ['haha'])
+print('------------------')
+print('h' in 'haha')
+print('ha' in 'haha')
+print('ah' in 'haha')
